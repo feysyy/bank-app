@@ -1,0 +1,41 @@
+.logInNavContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // border: 1px solid black;
+    height: 60px;
+    color: white;
+
+    .bankName {
+        padding-left: 90px;
+    }
+
+    .navContainer {
+        cursor: pointer;
+        .listContainer {
+            width: 800px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            li {
+                list-style: none;
+            }
+
+            .signUpBtn {
+                text-align: center;
+                border: 1px solid white;
+                height: 30px;
+                width: 90px;
+                padding-top: 4px; 
+                border-radius: 20px;
+
+                &:hover {
+                    background-color: white;
+                    color: black;
+
+                }
+            }
+        }
+    }
+}

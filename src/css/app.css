@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;700&family=Libre+Bodoni:wght@400;500;700&family=Nanum+Myeongjo:wght@400;700;800&family=Roboto:wght@100;300;400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "EB Garamond", serif;
+  font-family: "Libre Bodoni", serif;
+  font-family: "Nanum Myeongjo", serif;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-image: url("../../assets/bank-bg.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 969px;
+}
+
+.header {
+  border: 1px solid black;
+}
+
+.logInNavContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  color: white;
+}
+.logInNavContainer .bankName {
+  padding-left: 90px;
+}
+.logInNavContainer .navContainer {
+  cursor: pointer;
+}
+.logInNavContainer .navContainer .listContainer {
+  width: 800px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.logInNavContainer .navContainer .listContainer li {
+  list-style: none;
+}
+.logInNavContainer .navContainer .listContainer .signUpBtn {
+  text-align: center;
+  border: 1px solid white;
+  height: 30px;
+  width: 90px;
+  padding-top: 4px;
+  border-radius: 20px;
+}
+.logInNavContainer .navContainer .listContainer .signUpBtn:hover {
+  background-color: white;
+  color: black;
+}
+
+.textContainer {
+  width: 600px;
+  margin-left: 90px;
+  margin-top: 30px;
+  color: white;
+}
+
+.secondTextContainer {
+  position: fixed;
+  top: 790px;
+  left: 100px;
+  color: white;
+}
+
+.formContainer .logInContainer {
+  height: 400px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 40px;
+  position: fixed;
+  left: 130px;
+  top: 270px;
+}
+.formContainer .logInContainer .usernameBox {
+  height: 30px;
+  width: 230px;
+  text-align: center;
+  margin-left: 34px;
+  border-radius: 20px;
+}
+.formContainer .logInContainer .usernameLabel {
+  margin-top: 90px;
+}
+.formContainer .logInContainer .passwordLabel {
+  margin-top: 20px;
+}
+.formContainer .logInContainer .passwordBox {
+  height: 30px;
+  width: 230px;
+  text-align: center;
+  margin-left: 34px;
+  border-radius: 20px;
+}
+.formContainer .logInContainer .submitBtn {
+  height: 25px;
+  width: 80px;
+  text-align: center;
+  margin-left: 108px;
+  border-radius: 20px;
+  margin-top: 40px;
+}
+
+.mainContainer {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  margin-top: 100px;
+}
+.mainContainer .userContainer {
+  border: 1px solid black;
+  height: 500px;
+  display: flex;
+  justify-content: space-between;
+}
+.mainContainer .userContainer .accountInfo {
+  border: 1px solid black;
+  height: 370px;
+  width: 500px;
+  margin-top: 40px;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.mainContainer .userContainer .userInteraction {
+  height: 370px;
+  width: 620px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: center;
+  font-size: 30px;
+  gap: 5px;
+  margin-top: 40px;
+  margin-right: 30px;
+}
+.mainContainer .userContainer .userInteraction .depositBox {
+  border: 1px solid black;
+}
+.mainContainer .userContainer .userInteraction .sendMoneyBox {
+  border: 1px solid black;
+}
+.mainContainer .userContainer .userInteraction .withdrawBox {
+  border: 1px solid black;
+}
+.mainContainer .userContainer .userInteraction .friendsBox {
+  border: 1px solid black;
+}
+.mainContainer .expensesContainer {
+  border: 1px solid black;
+  height: 240px;
+}
