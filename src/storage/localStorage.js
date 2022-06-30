@@ -5,3 +5,20 @@ export function setLogUser(user) {
 export function getLogUser() {
    return JSON.parse(localStorage.getItem('user'))
 }
+
+// unang bukas ng browser
+export function initializeUserList() {
+    if(localStorage.getItem('users')) {
+        return
+    } else {
+        localStorage.setItem('users', JSON.stringify([]))
+    }
+}
+
+export function getUserList() {
+   return JSON.parse(localStorage.getItem('users'))
+}
+
+export function setUserList(users) {
+    localStorage.setItem('users', JSON.stringify(users))
+}
