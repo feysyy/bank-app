@@ -34,19 +34,7 @@
             margin-top: 40px;
             margin-right: 30px;
 
-            .depositBox {
-               border: 1px solid black;
-            }
-
-            .sendMoneyBox {
-                border: 1px solid black;
-            }
-
-            .withdrawBox {
-                border: 1px solid black;
-            }
-
-            .friendsBox {
+            & > div {
                 border: 1px solid black;
             }
         }
