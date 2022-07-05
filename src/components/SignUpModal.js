@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { setLogUser, getLogUser, getUserList, setUserList } from '../storage/localStorage'
+import { setAccount } from '../storage/localStorage'
 
 export default function SignUpModal() {
   const [ email, setEmail ] = useState()
@@ -25,9 +25,9 @@ export default function SignUpModal() {
       'accountNumber': accountNumber,
       'password': password,
       'confirmPassword': confirmPassword,
-      'balance': 0
+      balance: 0
     }
-    setUserList([...getUserList(), userInfo])
+    setAccount(username, userInfo)
   }
   
   return (
@@ -102,12 +102,6 @@ export default function SignUpModal() {
           <input className='signUpSubmitBtn' type='submit'/>
         </form>
       </div>
-        {/* <div>
-          {getLogUser()?.username}
-          {getLogUser()?.email}
-          {getLogUser()?.firstname}
-          {getLogUser()?.lastname}
-        </div> */}
     </section>
   )
 }

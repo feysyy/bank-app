@@ -1,29 +1,19 @@
-export function setLogUser(user) {
-    localStorage.setItem('user', JSON.stringify(user))
-}
-
-export function getLogUser() {
-   return JSON.parse(localStorage.getItem('user'))
-}
-
-export function removeLogUser() {
-    localStorage.removeItem('user')
+export function getAccount(userName) {
+    return JSON.parse(localStorage.getItem(userName))
  }
  
+ export function setAccount(userName, userInfo) {
+     localStorage.setItem(userName, JSON.stringify(userInfo))
+ }
 
-// unang bukas ng browser
-export function initializeUserList() {
-    if(localStorage.getItem('users')) {
-        return
-    } else {
-        localStorage.setItem('users', JSON.stringify([]))
-    }
-}
+ export function getUser() {
+    return JSON.parse(localStorage.getItem('accessingUser'))
+ }
+ 
+ export function setUser(userName) {
+     localStorage.setItem('accessingUser', JSON.stringify(userName))
+ }
 
-export function getUserList() {
-   return JSON.parse(localStorage.getItem('users'))
-}
-
-export function setUserList(users) {
-    localStorage.setItem('users', JSON.stringify(users))
+ export function removeUser() {
+    localStorage.removeItem('accessingUser')
 }

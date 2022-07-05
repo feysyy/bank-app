@@ -1,22 +1,16 @@
 import React, { useState } from 'react'
-import { getLogUser, setLogUser } from '../storage/localStorage'
+import { getUser, getAccount } from '../storage/localStorage'
 
-export default function Deposit() {
+export default function Deposit({ setUserBalance }) {
   const [ depositAmount, setDepositAmount ] = useState()
-  const [ currentUser, setCurrentUser ] = useState(getLogUser())
-
-
+  
   function handleSubmit(e) {
     e.preventDefault()
-    // let currentBalance = currentUser.balance
-    // currentBalance += depositAmount
-    // setLogUser(currentUser)
-    console.log(currentUser)
+    const result = getAccount(getUser()).balance + depositAmount
+    setUserBalance(result)
   }
   
-  function checkValidity() {
 
-  }
 
   return (
     <section>
@@ -25,7 +19,7 @@ export default function Deposit() {
             <label></label>
             <br></br>
             <input
-              onChange={(e) => setDepositAmount(e.target.value)}
+              onChange={(e) => setDepositAmount(Number(e.target.value))}
               type="number"
               placeholder='Enter Amount'
               required

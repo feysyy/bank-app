@@ -1,24 +1,30 @@
-// import React, { useState, useEffect } from 'react'
-import Header from '../components/MainHeader'
+import React, { useState, useEffect } from 'react'
 import Deposit from '../components/Deposit'
-import { getLogUser, removeLogUser } from '../storage/localStorage'
 import { useNavigate } from 'react-router-dom';
+import { getAccount, setAccount, getUser, removeUser} from '../storage/localStorage'
 
 
 export default function MainSection() {
   const navigate = useNavigate()
-  const currentUser = getLogUser()
+  const currentUser = getAccount(getUser())
+  const [ userBalance, setUserBalance ] = useState(currentUser.balance)
 
+  useEffect(() => {
+    const user_current = getAccount(getUser())
+    user_current.balance = userBalance
+    setAccount(getUser(), user_current) //updating the info/balance inside the local storage
+  }, [userBalance])
+  
   return (
     <section className='mainContainer'>
       <div>Hello, {currentUser.firstname}</div>
       <div className='userContainer'>
         <div className='accountInfo'>
-          <h1 className='balanceText'>Balance: {currentUser.balance}</h1>
-          <h2 className='accNumberText'>Account Number: {currentUser.accountNumber}</h2>
+          <h1 className='balanceText'>Balance: {userBalance}</h1>
+          <h2 className='accNumberText'>Account Number: {currentUser.accountNumber} </h2>
         </div>
         <div className='userInteraction'>
-          <div className='depositBox'><Deposit /></div>
+          <div className='depositBox'><Deposit setUserBalance={setUserBalance}/></div>
           <div className='sendMoneyBox'>Send Money</div>
           <div className='withdrawBox'>Withdraw</div>
           <div className='friendsBox'>Friends</div>
@@ -32,7 +38,7 @@ export default function MainSection() {
         </div>
       </div>
       <button onClick={() => {
-        removeLogUser() 
+        removeUser()
         navigate('/') 
       }}>
         Log Out
@@ -40,16 +46,3 @@ export default function MainSection() {
     </section>
   )
 }
-
-
-
-
-// function MainSection() {
-//     return (
-//         <div>
-            
-//         </div>
-//     )
-// }
-
-// export default MainSection

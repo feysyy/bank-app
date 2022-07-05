@@ -1,41 +1,23 @@
 import React, { useState, useEffect } from 'react'
-import { getUserList, initializeUserList, setLogUser } from '../storage/localStorage'
 import LogInNav from '../components/LogInNav'
 import { useNavigate } from 'react-router-dom';
+import { getAccount, setUser } from '../storage/localStorage'
 
 export default function LogIn() {
   const [username, setUserName] = useState()
   const [password, setPassword] = useState()
   const navigate = useNavigate();
 
-  useEffect(() => {
-    initializeUserList()
-  }, [])
-
   
   function handleSubmit(e) {
     e.preventDefault()
-    const currentUser = getUserList()?.find(each => each.username === username && each.password === password)
+    const currentUser = getAccount(username)
     if(!currentUser) {
       return //trigger for error message
     }
-    setLogUser(currentUser)
+    setUser(username)
     navigate('/transactions')
-    // const user = users?.find(each => each.password === e.target.value && each.username === usernameInput);
-    // if(checkValidity(currentUser) === false) {
-    //   return
-    // }
   }
-
-  // function checkValidity(user) {
-  //   if(!user) {
-  //     return false
-  //   }
-  // }
-  
-  // function resetState() {
-
-  // }
 
   return (
     <>
@@ -72,9 +54,6 @@ export default function LogIn() {
           <input className='submitBtn' type='submit'/> 
           </div>
         </form>
-        {/* <div>
-          {getLogUser()?.username}
-        </div> */}
       </section>
       <div className='secondTextContainer'>
         <h2>
