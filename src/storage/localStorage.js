@@ -6,6 +6,11 @@ export function getLogUser() {
    return JSON.parse(localStorage.getItem('user'))
 }
 
+export function removeLogUser() {
+    localStorage.removeItem('user')
+ }
+ 
+
 // unang bukas ng browser
 export function initializeUserList() {
     if(localStorage.getItem('users')) {

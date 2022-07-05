@@ -9,7 +9,6 @@ export default function SignUpModal() {
   const [ accountNumber, setAccountNumber ] = useState()
   const [ password, setPassword ] = useState()
   const [ confirmPassword, setConfirmPassword ] = useState()
-  // const [ showForm, setShowForm ] = useState(false)
 
 
   function handleSubmit(e) {
@@ -25,7 +24,8 @@ export default function SignUpModal() {
       'username': username,
       'accountNumber': accountNumber,
       'password': password,
-      'confirmPassword': confirmPassword
+      'confirmPassword': confirmPassword,
+      'balance': 0
     }
     setUserList([...getUserList(), userInfo])
   }

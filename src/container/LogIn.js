@@ -1,24 +1,38 @@
 import React, { useState, useEffect } from 'react'
-import { initializeUserList } from '../storage/localStorage'
+import { getUserList, initializeUserList, setLogUser } from '../storage/localStorage'
 import LogInNav from '../components/LogInNav'
+import { useNavigate } from 'react-router-dom';
 
 export default function LogIn() {
   const [username, setUserName] = useState()
   const [password, setPassword] = useState()
+  const navigate = useNavigate();
 
   useEffect(() => {
     initializeUserList()
   }, [])
 
-
+  
   function handleSubmit(e) {
     e.preventDefault()
-    // setLogUser({
-    //   'username': username,
-    //   'password': password
-    // })
+    const currentUser = getUserList()?.find(each => each.username === username && each.password === password)
+    if(!currentUser) {
+      return //trigger for error message
+    }
+    setLogUser(currentUser)
+    navigate('/transactions')
+    // const user = users?.find(each => each.password === e.target.value && each.username === usernameInput);
+    // if(checkValidity(currentUser) === false) {
+    //   return
+    // }
   }
 
+  // function checkValidity(user) {
+  //   if(!user) {
+  //     return false
+  //   }
+  // }
+  
   // function resetState() {
 
   // }
