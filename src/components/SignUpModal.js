@@ -20,14 +20,17 @@ export default function SignUpModal() {
     }
 
     const userInfo = {
-      email: email,
-      firstname: firstname,
-      lastname: lastname,
-      username: username,
-      accountNumber: accountNumber,
-      password: password,
-      confirmPassword: confirmPassword,
-      balance: 0
+      email,
+      firstname,
+      lastname,
+      username,
+      accountNumber,
+      password,
+      confirmPassword,
+      balance: 0,
+      expenses: [],
+      image: "",
+      history: []
     }
     setAccount(username, userInfo)
     alert('Account successfully created')
@@ -79,7 +82,7 @@ export default function SignUpModal() {
             onChange={(e) => setAccountNumber(Number(e.target.value))}
             type='number'
             id='account-number'
-            
+            max='10'
             placeholder='Account Number'
             required
           />

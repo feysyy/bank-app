@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { getUser, getAccount } from '../storage/localStorage'
 
-export default function Deposit({ setUserBalance }) {
+export default function Deposit({ setUserBalance, setSampleHistory, sampleHistory}) {
   const [ depositAmount, setDepositAmount ] = useState()
   
   function handleSubmit(e) {
     e.preventDefault()
     const result = getAccount(getUser()).balance + depositAmount
     setUserBalance(result)
+    setSampleHistory([...sampleHistory, `you deposited ${depositAmount} to your account`])
     alert('Deposit Success')
     e.target.reset()
     resetState()
