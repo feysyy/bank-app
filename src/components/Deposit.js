@@ -8,8 +8,14 @@ export default function Deposit({ setUserBalance }) {
     e.preventDefault()
     const result = getAccount(getUser()).balance + depositAmount
     setUserBalance(result)
+    alert('Deposit Success')
+    e.target.reset()
+    resetState()
   }
   
+  function resetState() {
+    setDepositAmount(0)
+  }
 
 
   return (
@@ -24,7 +30,7 @@ export default function Deposit({ setUserBalance }) {
         />
         <div>
           <button>Deposit</button>
-          <button>Reset</button>
+          <button type="reset">Reset</button>
         </div>
         </form>
     </section>

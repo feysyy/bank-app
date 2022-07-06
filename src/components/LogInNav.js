@@ -4,10 +4,6 @@ import SignUpModal from "./SignUpModal"
 export default function LogInNav() {
   const [ showform, setShowForm ] = useState(false)
 
-  const toggleShowForm = () => {
-    setShowForm((showform) => !showform)
-  }
-
   return (
     <>
       <div className='logInNavContainer'>
@@ -17,7 +13,12 @@ export default function LogInNav() {
                 <li>Home</li>
                 <li>Contact Us</li>
                 <li>Privacy Policy</li>
-                <button className='signUpBtn' onClick={toggleShowForm}>Sign Up</button>
+                <button
+                  className='signUpBtn'
+                  onClick={() => setShowForm(!showform)}
+                >
+                  Sign Up
+                </button>
               </ul>
           </nav>
       </div>

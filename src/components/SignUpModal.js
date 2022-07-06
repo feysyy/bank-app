@@ -13,23 +13,26 @@ export default function SignUpModal() {
 
   function handleSubmit(e) {
     e.preventDefault()
+    e.target.reset()
     if(confirmPassword !== password) {
+      alert('Password does not match')
       return
     }
-   
+
     const userInfo = {
-      'email': email,
-      'firstname': firstname,
-      'lastname': lastname,
-      'username': username,
-      'accountNumber': accountNumber,
-      'password': password,
-      'confirmPassword': confirmPassword,
+      email: email,
+      firstname: firstname,
+      lastname: lastname,
+      username: username,
+      accountNumber: accountNumber,
+      password: password,
+      confirmPassword: confirmPassword,
       balance: 0
     }
     setAccount(username, userInfo)
+    alert('Account successfully created')
   }
-  
+
   return (
     <section className='modalSection'>
       <div className='formContainer'>
@@ -73,8 +76,8 @@ export default function SignUpModal() {
           <br></br>
           <label></label>
           <input
-            onChange={(e) => setAccountNumber(e.target.value)}
-            type='text'
+            onChange={(e) => setAccountNumber(Number(e.target.value))}
+            type='number'
             id='account-number'
             
             placeholder='Account Number'
@@ -99,7 +102,10 @@ export default function SignUpModal() {
             required
           />
           <br></br>
-          <input className='signUpSubmitBtn' type='submit'/>
+          <input
+            className='signUpSubmitBtn' 
+            type='submit'
+          />
         </form>
       </div>
     </section>

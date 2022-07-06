@@ -7,21 +7,29 @@ export default function Withdraw({ setUserBalance }) {
 
     function handleSubmit(e) {
         e.preventDefault()
-      // const result = getAccount(getUser()).balance - withdrawAmount
-      // setUserBalance(result)
-      // if(result < 0) {
-      //   alert('Insufficient Balance')
-      // }
       const result = getAccount(getUser()).balance - withdrawAmount
-      const invalid = getAccount(getUser()).balance
-      if(result >= 0) {
-        setUserBalance(result)
-      } else if( result < 0) {
-        setUserBalance(invalid)
+      if(result < 0) {
         alert('insufficient balance')
+        e.target.reset()
+        return
       }
+      setUserBalance(result)
+      alert('withdraw success')
+      resetState()
+      // const invalid = getAccount(getUser()).balance
+      // if(result >= 0) {
+      //   setUserBalance(result)
+      //   alert('withdraw success')
+      // } else if( result < 0) {
+      //   setUserBalance(invalid)
+      //   e.target.reset()
+      //   alert('insufficient balance')
+      // }
     }
 
+    function resetState() {
+      setWithdrawAmount(0)
+    }
   return (
     <section>
       <div>Withdraw</div>
@@ -34,7 +42,7 @@ export default function Withdraw({ setUserBalance }) {
         />
         <div>
           <button>Withdraw</button>
-          <button>Reset</button>
+          <button type="reset">Reset</button>
         </div>
       </form>
     </section>
