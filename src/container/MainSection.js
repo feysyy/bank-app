@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import Deposit from '../components/Deposit'
+import React, { useState, useEffect } from 'react';
+import Deposit from '../components/Deposit';
+import Withdraw from '../components/Withdraw';
 import { useNavigate } from 'react-router-dom';
-import { getAccount, setAccount, getUser, removeUser} from '../storage/localStorage'
+import { getAccount, setAccount, getUser, removeUser} from '../storage/localStorage';
 
 
 export default function MainSection() {
@@ -25,8 +26,8 @@ export default function MainSection() {
         </div>
         <div className='userInteraction'>
           <div className='depositBox'><Deposit setUserBalance={setUserBalance}/></div>
+          <div className='withdrawBox'><Withdraw setUserBalance={setUserBalance}/></div>
           <div className='sendMoneyBox'>Send Money</div>
-          <div className='withdrawBox'>Withdraw</div>
           <div className='friendsBox'>Friends</div>
         </div>
       </div>

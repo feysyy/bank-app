@@ -14,20 +14,18 @@ export default function Deposit({ setUserBalance }) {
 
   return (
     <section>
-        <div>Deposit</div>
-        <form onSubmit={(e) => handleSubmit(e)}>
-            <label></label>
-            <br></br>
-            <input
-              onChange={(e) => setDepositAmount(Number(e.target.value))}
-              type="number"
-              placeholder='Enter Amount'
-              required
-            />
-            <div>
-              <button>Deposit</button>
-              <button>Reset</button>
-            </div>
+      <div>Deposit</div>
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <input
+          onChange={(e) => setDepositAmount(Number(e.target.value))}
+          type="number"
+          placeholder='Enter Amount'
+          required
+        />
+        <div>
+          <button>Deposit</button>
+          <button>Reset</button>
+        </div>
         </form>
     </section>
   )
