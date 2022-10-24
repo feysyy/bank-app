@@ -18,6 +18,7 @@ export default function SignUpModal() {
       alert('Password does not match')
       return
     }
+    
 
     const userInfo = {
       email,
@@ -82,7 +83,6 @@ export default function SignUpModal() {
             onChange={(e) => setAccountNumber(Number(e.target.value))}
             type='number'
             id='account-number'
-            max='10'
             placeholder='Account Number'
             required
           />
