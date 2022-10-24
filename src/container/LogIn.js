@@ -4,18 +4,35 @@ import { useNavigate } from 'react-router-dom';
 import { getAccount, setUser } from '../storage/localStorage'
 
 export default function LogIn() {
-  const [username, setUserName] = useState()
-  const [password, setPassword] = useState()
+  // const [username, setUserName] = useState()
+  // const [password, setPassword] = useState()
+  const [ loginUser, setLoginUser ] = useState({
+    username: "",
+    password: ""
+  })
   const navigate = useNavigate();
 
-  
+  function handleChange(e) {
+    // console.log(e.currentTarget.elements)
+    const data = {}
+    for (const input of e.currentTarget.elements) {
+      if(input.name !== null && input.name !== "") {
+        data[input.name] = input.value
+      }
+    }
+    // console.log(data)
+    setLoginUser(data)
+  }
+
   function handleSubmit(e) {
     e.preventDefault()
-    const currentUser = getAccount(username)
-    if(!currentUser) {
-      return //trigger for error message
+    console.log(loginUser)
+    const currentUser = getAccount(loginUser.username)
+    if(!currentUser || currentUser.password !== loginUser.password) {
+      alert('Account does not match')
+      return
     }
-    setUser(username)
+    setUser(loginUser.username)
     navigate('/transactions')
   }
 
@@ -33,22 +50,26 @@ export default function LogIn() {
         </p>
       </div>
       <section>
-        <form onSubmit={(e) => handleSubmit(e)} className='formContainer'>
+        <form onChange={(e) => handleChange(e)} onSubmit={(e) => handleSubmit(e)} className='formContainer'>
           <div className='logInContainer'>
             <label className='usernameLabel'>Username: </label>
             <input
               className='usernameBox'
-              onChange={(e) => setUserName(e.target.value)}
+              // onChange={(e) => setUserName(e.target.value)}
               type='text'
               id='login'
+              // value={loginUser.username}
+              name="username"
               required
             />
             <label className='passwordLabel'>Password: </label>
             <input
               className='passwordBox'
-              onChange={(e) => setPassword(e.target.value)}
+              // onChange={(e) => setPassword(e.target.value)}
               type='password' 
               id='password'
+              // value={loginUser.password}
+              name='password'
               required
             />
           <input className='submitBtn' type='submit'/> 
