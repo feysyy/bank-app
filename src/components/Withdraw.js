@@ -16,15 +16,6 @@ export default function Withdraw({ setUserBalance }) {
       setUserBalance(result)
       alert('withdraw success')
       resetState()
-      // const invalid = getAccount(getUser()).balance
-      // if(result >= 0) {
-      //   setUserBalance(result)
-      //   alert('withdraw success')
-      // } else if( result < 0) {
-      //   setUserBalance(invalid)
-      //   e.target.reset()
-      //   alert('insufficient balance')
-      // }
     }
 
     function resetState() {
